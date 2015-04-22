@@ -27,17 +27,17 @@ var searchOptions = {
 	componentRestrictions: {country: "us"}
 };
 // Icon for incidents
-var incidentImage = new google.maps.MarkerImage("../style/incidentImage.png",
+var incidentImage = new google.maps.MarkerImage("style/incidentImage.png",
 	null,
 	new google.maps.Point(0,0), // origin
 	new google.maps.Point(8,8)); // centre
 // Icon for user's marker
-var userImage = new google.maps.MarkerImage("../style/userImage.png",
+var userImage = new google.maps.MarkerImage("style/userImage.png",
 	null,
 	new google.maps.Point(0,0),
 	new google.maps.Point(8,8));
 // Icon for resize marker
-var resizeImage = new google.maps.MarkerImage("../style/resizeImage.png",
+var resizeImage = new google.maps.MarkerImage("style/resizeImage.png",
 	null,
 	new google.maps.Point(0,0),
 	new google.maps.Point(11,6));
