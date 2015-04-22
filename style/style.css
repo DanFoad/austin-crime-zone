@@ -1,0 +1,413 @@
+/**** GENERAL ****/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+    overflow: hidden;
+}
+input[type="text"]:focus, input[type="search"]:focus, input[type="number"]:focus {
+    border: 1px solid #80CBC4 !important;
+    outline: none !important;
+}
+input[type="text"], input[type="search"], input[type="number"] {
+    background-color: #FFFFFF;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+}
+button[class^="button"], button[class*="button"] {
+    border-radius: 0;
+    border: 1px solid #E0E0E0;
+    background-color: #EEEEEE;
+    cursor: pointer;
+    color: #888888;
+    height: 32px;
+}
+button[class^="button"]:hover, button[class*="button"]:hover {
+    background-color: #DDDDDD;
+}
+.button--submit {
+    width: 32px;
+}
+button:focus {
+    outline: none !important;
+}
+#overlay {
+    width: 100%;
+    height: 100%;
+    z-index: 49;
+    background-color: rgba(0,0,0,0.3);
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    background: url("loader.gif") 50% 50% no-repeat #FFFFFF;
+}
+
+
+/**** HEADER ****/
+header {
+    height: 64px;
+    background-color: #009688;
+    position: relative;
+    margin-left: 240px;
+}
+#header__title {
+    display: inline-block;
+    height: 64px;
+    line-height: 64px;
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #FFFFFF;
+    margin-left: 64px;
+}
+header .button--settings {
+    position: absolute;
+    display: none;
+    top: 0;
+    bottom: 0;
+    left: 16px;
+    margin: auto;
+    height: 16px;
+    line-height: 16px;
+    font-size: 1.2em;
+    color: #FFF;
+    cursor: pointer;
+}
+
+/**** SIDEBAR ****/
+#sidebar {
+    width: 240px;
+    height: 100%;
+    background-color: #FFFFFF;
+    color: #333333;
+    border-right: 1px solid #E0E0E0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    z-index: 50;
+}
+#sidebar__wrapper {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+}
+#sidebar__title {
+    height: 64px;
+    line-height: 64px;
+    font-weight: 300;
+    font-size: 1.5em;
+    position: relative;
+    padding-left: 16px;
+    border-bottom: 1px solid #E0E0E0;
+    margin-bottom: 12px;
+}
+#sidebar__title .button--settings {
+    height: 16px;
+    line-height: 16px;
+    font-size: 0.8em;
+    position: absolute;
+    right: 16px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: none;
+    cursor: pointer;
+}
+#sidebar dl dt {
+    font-weight: 700;
+    margin-top: 0;
+    font-size: 0.81em;
+    line-height: 0.81em;
+    padding: 15px 0px 15px 22px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+#sidebar dl dt:hover {
+    background-color: #DDDDDD;
+}
+#sidebar hr {
+    border: 0;
+    height: 1px;
+    background-color: #E0E0E0;
+    margin: 12px 0 16px;
+}
+.settings__title {
+    display: inline-block;
+    padding: 0 8px;
+    font-weight: 700;
+    font-size: 0.81em;
+    line-height: 0.81em;
+}
+.settings__info {
+    cursor: help;
+}
+#settings__zoneRadius {
+    min-height: 32px;
+    width: 144px;
+    margin-left: 32px;
+    border: 1px solid #E0E0E0;
+    padding-left: 16px;
+    vertical-align: top;
+}
+#settings__zoneRadius:invalid {
+    border: 1px solid #EF9A9A;
+}
+#settings__setRadius {
+    border-left: 0;
+    min-width: 32px;
+    height: 32px;
+    line-height: 32px;
+}
+.settings__switch {
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    padding-left: 16px;
+    font-size: 0.85em;
+}
+input[type="checkbox"] {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+}
+input[type="checkbox"] + label {
+    display: block;
+    position: absolute;
+    top: 4px;
+    right: 16px;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    padding: 2px;
+    width: 56px;
+    height: 32px;
+    background-color: #DDDDDD;
+    border-radius: 30px;
+    transition: background 0.4s;
+}
+input[type="checkbox"] + label:before, input[type="checkbox"] + label:after {
+    display: block;
+    position: absolute;
+    content: "";
+}
+input[type="checkbox"] + label:before {
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    right: 2px;
+    background-color: #FFFFFF;
+    border-radius: 32px;
+    transition: background 0.4s;
+}
+input[type="checkbox"] + label:after {
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    width: 24px;
+    background-color: #DDDDDD;
+    border-radius: 30px;
+    transition: margin 0.4s, background 0.4s;
+}
+input[type="checkbox"]:checked + label {
+  background-color: #80CBC4;
+}
+input[type="checkbox"]:checked + label:after {
+  margin-left: 24px;
+  background-color: #80CBC4;
+}
+.button--switch {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    height: 32px;
+    color: #333333;
+}
+#settings__toggleTypes {
+    margin-top: 8px;
+}
+#settings__timeContainer {
+    width: 208px;
+    margin: 0 auto;
+    padding: 4px 0;
+    position: relative;
+}
+#settings__time {
+    -webkit-appearance: none;
+    padding: 0 2px;
+    outline: none;
+    width: 100%;
+    border-radius: 8px;
+    height: 32px;
+    border: 2px solid #80CBC4;
+    background-color: #FFFFFF; 
+}
+::-moz-range-track {
+    -moz-appearance: none;
+    padding: 0 2px;
+    width: 208px;
+    border-radius: 8px;
+    height: 32px;
+    border: 2px solid #80CBC4;
+    background-color: #FFFFFF; 
+}
+#settings__time::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background-color: #80CBC4;
+	border: 0;
+	width: 24px;
+	height: 24px;
+	border-radius: 6px;
+	cursor: pointer;
+}
+::-moz-range-thumb {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: #80CBC4;
+	border: 0;
+	width: 24px;
+	height: 24px;
+	border-radius: 6px;
+	cursor: pointer;
+}
+#time__day {
+    position: absolute;
+    width: 16px;
+    text-align: center;
+    display: inline-block;
+    left: 8px;
+    top: 40px;
+}
+#time__both {
+    position: absolute;
+    width: 16px;
+    text-align: center;
+    display: inline-block;
+    left: 0;
+    right: 0;
+    top: 40px;
+    margin: auto;
+}
+#time__night {
+    position: absolute;
+    width: 16px;
+    text-align: center;
+    display: inline-block;
+    right: 8px;
+    top: 40px;
+}
+
+/**** User Guide Link ****/
+.settings__guide {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 0.9em;
+    background-color: #FFFFFF;
+    padding: 4px 8px;
+    border: 1px solid #E0E0E0;
+}
+.settings__guide i {
+    color: #888888;
+}
+.settings__guide a {
+    text-decoration: none;
+}
+.settings__guide a:hover {
+    text-decoration: underline;
+}
+.settings__guide a:visited {
+    color: #0000FF;
+}
+
+
+/**** MAP ****/
+#map__canvas {
+    position: relative;
+    width: calc(100% - 240px);
+    height: calc(100% - 64px);
+    margin-left: 240px;
+}
+#map__search {
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: flex;
+    position: absolute;
+    top: 69px;
+    right: 42px;
+    width: 433px;
+    height: 32px;
+}
+#map__searchInput {
+    flex: 1;
+    border: 1px solid #E0E0E0;
+    padding-left: 4px;
+    min-height: 32px;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+#settings__search {
+    border-left: 0;
+}
+.map__zoomControl {
+    background-color: #EEEEEE;
+	border: 1px solid #E0E0E0;
+	color: #888888;
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	cursor: pointer;
+	text-align: center;
+	font-size: 0.81em;
+	font-family: "FontAwesome";
+	user-select: none;
+}
+.map__zoomControl:hover {
+    background-color: #DDDDDD;
+}
+.pac-icon { /* Remove pin from search items */
+    width: 0;
+    background-image: none;
+}
+
+/**** RESPONSIVE RULES ****/
+@media all and (max-width: 720px) {
+    header {
+        margin-left: 0;
+    }
+    header .button--settings {
+        display: block;
+    }
+    #sidebar {
+        left: -240px;
+    }
+    #map__canvas {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+@media all and (max-width: 480px) {
+    #map__search {
+        width: calc(100% - 47px);
+    }
+}
