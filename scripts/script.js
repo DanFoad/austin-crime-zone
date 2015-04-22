@@ -740,3 +740,5 @@ document.addEventListener("DOMNodeInserted", function(event) {
 		}
 	}
 });
+
+// END OF CODE
