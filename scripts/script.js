@@ -113,7 +113,7 @@ function initialise() {
     // Initialise map object with relevant options
     map = new google.maps.Map(document.getElementById("map__canvas"), mapOptions);
     var outline = new google.maps.KmlLayer({
-    	url: "http://comp4.danfoad.co.uk/style/outline.kml?v=10",
+    	url: "http://comp4.danfoad.co.uk/style/outline.kml?v=2",
     	map: map,
     	preserveViewport: true,
     	suppressInfoWindows: true
